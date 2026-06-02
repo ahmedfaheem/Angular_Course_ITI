@@ -1,0 +1,67 @@
+
+<!-- data interpolation -->
+<p>if you want to manuplate data in html ----> id is {{id()+1}}</p>
+
+<p>if you want to manuplate data in html ----> name is {{name()+' Angular'}}</p>
+
+<!-- Property binding -->
+<input [value]="x">
+<!-- <input [value]="x+50"> -->
+
+<h1 [innerText]="name()"></h1> <!-- property binding -->
+
+<input type="text" [value]="name()" [disabled]="flag">
+<input type="text" [value]="name()" [disabled]="!flag">
+
+<table border="2 solid red">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+    </tr>
+    <tr>
+        <td [colSpan]="y">{{id()}}</td>
+        <!-- attribute binding -->
+        <td [attr.colspan]="y">{{id()}}</td> <!-- both are same but [attr.colspan] is more explicit to html and [colSpan] is more explicit to TypeScript of dom properties -->
+
+    </tr>
+</table>
+
+<!-- Event binding -->
+<input [value]="x">
+<button (click)="x=100">Show</button>
+<br>
+<button (click)="myfun()">Show In Console</button>
+<br>
+<!-- when fire event in js, the event object is created and passed to the handler which has properties like target, type, etc. -->
+<!--  
+<input type="text" (keyup)="updateY($event.target.value)">
+<p>{{y}}</p>
+-->
+<!-- when fire event in js, the event object is created and passed to the handler which has properties like target, type, etc. -->
+<!-- Template refrence variable  #t1 which point to the created object in dom-->
+<!-- <input #t1 type="text" (keyup)="updateY(t1.value)">
+<p>{{y}}</p>  -->
+
+
+<!-- Event binding with specific key 
+     fire keyup when enter
+  -->
+ <input #t1 type="text" (keyup.enter)="updateY(t1.value)">
+<p>{{y}}</p>
+<!-------------------------------------------------------->
+
+
+<!-- Two way data binding -->
+
+<!-- <input #t2 [value]="z" (keyup)="z=+t2.value">{{z}}-->
+
+<!-- 
+instead of this  ngModel directive
+ngModlel is a directive that create two way data binding between the input and the variable z in the component class
+Exists in FormsModule which we need to import it in app module
+ -->
+ <input [(ngModel)]="z">{{z}}
+
+
+ <!-- bind to signal -->
+<input [(ngModel)]="id">

@@ -1,0 +1,36 @@
+<div class="container">
+    <h1 class="text-3xl font-bold mb-4">PrimeNG Components</h1>
+    <p-button label="Check" />
+
+
+    <br> <br>
+
+
+    <p-toast />
+    <div class="card flex justify-center">
+        <form #exampleForm="ngForm" (ngSubmit)="onSubmit(exampleForm)" class="flex flex-col gap-4 w-40">
+            <div class="flex flex-col items-center gap-2">
+                <p-rating #ratingValue="ngModel" [(ngModel)]="value" required name="ratingValue"
+                    [invalid]="ratingValue.invalid && (ratingValue.touched || exampleForm.submitted)" />
+                @if (ratingValue.invalid && (ratingValue.touched || exampleForm.submitted)) {
+                <p-message severity="error" size="small" variant="simple">Value is required.</p-message>
+                }
+            </div>
+            <button pButton severity="secondary" type="submit"><span pButtonLabel>Submit</span></button>
+        </form>
+    </div>
+
+ <br> <br>
+
+    <div class="card flex justify-center">
+        <p-multiselect [options]="cities" [(ngModel)]="selectedCities" optionLabel="name" placeholder="Select Cities"
+            [maxSelectedLabels]="3" class="w-full md:w-80" />
+    </div>
+
+ <br> <br>
+ 
+    <div class="card">
+        <p-editor [(ngModel)]="text" [style]="{ height: '320px' }" />
+    </div>
+
+</div>

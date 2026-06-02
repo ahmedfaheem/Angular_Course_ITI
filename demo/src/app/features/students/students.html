@@ -1,0 +1,116 @@
+<div class="container">
+  <h1 class="text-center pb-5 pt-5">Students</h1>
+
+  <div class="card shadow mb-5">
+    <div class="card-header">
+      <h3>Add Student</h3>
+    </div>
+
+    <div class="card-body">
+      <!-- ngSubmit : do action on submit-->
+      <form #studentForm="ngForm" (ngSubmit)="addStd()">
+        <div class="mb-3">
+          <label for="studentName" class="form-label">Name</label>
+          <input name="studentName" [(ngModel)]="stdsTemp.name" type="text" class="form-control" id="studentName"
+            placeholder="Enter student name" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="studentAge" class="form-label">Age</label>
+          <input name="studentAge" [(ngModel)]="stdsTemp.age" type="number" class="form-control" id="studentAge"
+            placeholder="Enter age" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+
+          Add Student
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <table class="table mt-5">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr *ngFor="let student of stds()">
+      <th scope="row">{{ student.id }}</th>
+      <td>{{ student.name }}</td>
+      <td>{{ student.age }}</td>
+    </tr>
+    -->
+      @for(student of stds| studentfilter; track student.id; let i = $index; let o = $last ){
+      <tr [ngClass]="{'bg-danger': student.age < 18, 'bg-success': student.age >= 18}">
+        <th scope="row">{{ student.id | number }}</th>
+        <td>{{ student.name |uppercase}}</td>
+        <td>{{ student.age | number }}</td>
+      </tr>
+      }@empty {
+      <tr>
+        <td colspan="3" class="text-center">No students found.</td>
+      </tr>
+      }
+
+
+
+    </tbody>
+  </table>
+
+
+  <!--
+
+   Switch case in NG : @switch, @case, @default
+  -->
+
+  @switch (test) {
+  @case (1) {
+  <p>Case 1</p>
+  }
+  @case (10) {
+  <p>Case 10</p>
+  }
+  @default {
+  <p>Default case</p>
+  }
+  }
+
+
+
+
+  <!-- 
+pipes in NG : formating data for display
+
+ pipe: date
+  - format: 'shortDate', 'mediumDate', 'longDate', 'fullDate'
+-->
+  <h1>
+    {{bdate | date :'fullDate' | uppercase}} <br>
+    {{bdate | date :'shortDate'}} <br>
+    {{bdate | date :'mediumDate'}} <br>
+    {{bdate | date :'longDate'}} <br>
+    {{bdate | date : 'yyyy-MM-dd'}} <br>
+
+  </h1>
+
+
+  <!-- 
+ create your own pipe : @Pipe({name: 'studentfilter'})
+
+ command: ng g p shared/studentfilter
+
+ to use in students.ts import { StudentfilterPipe } from 'src/app/shared/studentfilter.pipe';
+ then in html use it like this : *ngFor="let student of stds | studentfilter"
+
+ pure and impure pipes : 
+ pure pipes are executed only when the input data changes(first work), so  if we update any property of object or array then pure pipe will not execute but impure pipe will execute in both cases because
+
+ while impure pipes are executed on every change detection cycle, regardless of whether the input data has changed or not.
+
+ so set pure: false in @Pipe({name: 'studentfilter', pure: false}) to make it impure pipe to update if any data pushed or changed
+-->
+</div>

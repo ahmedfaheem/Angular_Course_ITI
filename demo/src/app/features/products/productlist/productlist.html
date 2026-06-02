@@ -1,0 +1,49 @@
+<!--
+<table border="1">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Image</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Category</th>
+    </tr>
+  </thead>
+  <tbody>
+   
+     <tr *ngFor="let n of products">
+        <td>{{n.id}}</td>
+        <td>{{n.name}}</td>
+        <td><img [src]="n.imgUrl" [alt]="n.name" width="100"></td>
+        <td>{{n.price}}</td>
+        <td>{{n.quantity}}</td>
+        <td>{{n.catId}}</td>
+     </tr>
+  </tbody>
+</table>
+
+<div class="card" width="18rem;" *ngFor="let n of products">
+    <img class="card-img-top" [src]="n.imgUrl" [alt]="n.name" />
+    <div class="card-body">
+            <h4 class="card-title">{{n.name}}</h4>
+            <p class="card-text">{{n.price}}</p>
+            <p class="card-text">Quantity: {{n.quantity}}</p>
+            <p class="card-text">Category ID: {{n.catId}}</p>
+    </div>
+</div>
+
+-->
+
+@for (item of products; track $index) {
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top" [src]="item.imgUrl" [alt]="item.name" />
+
+    <div class="card-body">
+      <h4 class="card-title">{{ item.name }}</h4>
+      <p class="card-text">{{ item.price }}</p>
+      <p class="card-text">Quantity: {{ item.quantity }}</p>
+      <p class="card-text">Category ID: {{ item.catId }}</p>
+    </div>
+  </div>
+}
