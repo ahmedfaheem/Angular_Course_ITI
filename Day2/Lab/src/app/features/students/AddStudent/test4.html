@@ -1,0 +1,39 @@
+<div class="container">
+  <h1 class="text-center pb-5 pt-5">Students</h1>
+
+  <div class="card shadow mb-5">
+    <div class="card-header">
+      <h3 class="text-center pb-5 pt-5" >
+        @if(item()) {Edit Student} @else {Add Student}
+      </h3>
+    </div>
+
+    <div class="card-body">
+      <!-- ngSubmit : do action on submit-->
+      <form #studentForm="ngForm" (ngSubmit)="item() ? editStd() : addStd()">
+        <div class="mb-3">
+          <label for="studentName" class="form-label">Name</label>
+          <input name="studentName" [(ngModel)]="stdsTemp.name" type="text" class="form-control" id="studentName"
+            placeholder="Enter student name" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="studentAge" class="form-label">Age</label>
+          <input name="studentAge" [(ngModel)]="stdsTemp.age" type="number" class="form-control" id="studentAge"
+            placeholder="Enter age" required>
+        </div>
+
+        @if(item()) {
+        <button type="submit" class="btn btn-success">
+          Edit Student
+        </button>
+        } @else { 
+        <button type="submit" class="btn btn-primary">
+       
+          Add Student
+        </button>
+         }
+      </form>
+    </div>
+  </div>
+  </div>

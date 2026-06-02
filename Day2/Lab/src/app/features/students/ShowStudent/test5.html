@@ -1,0 +1,23 @@
+
+@if(student()){
+<div class="student-card">
+    <p><strong>ID:</strong> {{student()?.id}}</p>
+    <p><strong>Name:</strong> {{student()?.name}}</p>
+    <p><strong>Age:</strong> {{student()?.age}}</p>
+</div>
+}
+<style>
+    .student-card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 16px;
+        margin: 40px 0;
+        background-color: #f9f9f9;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .student-card p {
+        margin: 8px 0;
+        font-size: 16px;
+    }
+</style>
