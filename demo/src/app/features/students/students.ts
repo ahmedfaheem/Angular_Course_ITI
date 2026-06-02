@@ -3,10 +3,12 @@ import { IStudent } from '../../models/istudent';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from "@angular/forms";
 import { StudentfilterPipe } from '../../shared/studentfilter-pipe';
+import { Test4 } from "../test/test4/test4";
+import { Test5 } from "../test/test5/test5";
 
 @Component({
   selector: 'app-students',
-  imports: [CommonModule, FormsModule, StudentfilterPipe],
+  imports: [CommonModule, FormsModule, StudentfilterPipe, Test4, Test5],
   templateUrl: './students.html',
   styleUrl: './students.css',
 })
@@ -28,7 +30,6 @@ export class Students {
   //   this.stds.update(stds=>stds=[...stds,{id,name,age}]);
   // }
 
-   stdsTemp:IStudent =  {id:0,name:"",age:0};
 
    stds:IStudent[] = [
     {id:1,name:"Ahmed",age:20},
@@ -37,17 +38,17 @@ export class Students {
     {id:4,name:"Ali",age:23},
   ];
  
-   addStd(){
+   add(student:IStudent){
    // console.log(age);
-    if(this.stdsTemp.age == 0) return;
-    let idx = this.stds.length+1;
-    this.stds.push({id:idx, name:this.stdsTemp.name, age:this.stdsTemp.age})
-    this.stdsTemp.age = 0;
-    this.stdsTemp.name = "";
+    student.id = this.stds.length+1;
+    this.stds.push(student);
+   
   }
 
 
   bdate= new Date();
   test = 10;
+
+  item:IStudent|null = {id:0,name:"",age:0}; 
 
 }

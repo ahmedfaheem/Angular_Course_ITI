@@ -4,29 +4,9 @@
   <div class="card shadow mb-5">
     <div class="card-header">
       <h3>Add Student</h3>
+      <app-test4 (onStudentAdd)="add($event)"></app-test4>
     </div>
 
-    <div class="card-body">
-      <!-- ngSubmit : do action on submit-->
-      <form #studentForm="ngForm" (ngSubmit)="addStd()">
-        <div class="mb-3">
-          <label for="studentName" class="form-label">Name</label>
-          <input name="studentName" [(ngModel)]="stdsTemp.name" type="text" class="form-control" id="studentName"
-            placeholder="Enter student name" required>
-        </div>
-
-        <div class="mb-3">
-          <label for="studentAge" class="form-label">Age</label>
-          <input name="studentAge" [(ngModel)]="stdsTemp.age" type="number" class="form-control" id="studentAge"
-            placeholder="Enter age" required>
-        </div>
-
-        <button type="submit" class="btn btn-primary">
-
-          Add Student
-        </button>
-      </form>
-    </div>
   </div>
 
   <table class="table mt-5">
@@ -35,6 +15,7 @@
         <th scope="col">#</th>
         <th scope="col">Name</th>
         <th scope="col">Age</th>
+        <th scope="col">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -49,10 +30,11 @@
         <th scope="row">{{ student.id | number }}</th>
         <td>{{ student.name |uppercase}}</td>
         <td>{{ student.age | number }}</td>
+        <td> <button class="btn btn-info" (click)="item=student">Details</button></td>
       </tr>
       }@empty {
       <tr>
-        <td colspan="3" class="text-center">No students found.</td>
+        <td colspan="4" class="text-center">No students found.</td>
       </tr>
       }
 
@@ -60,6 +42,8 @@
 
     </tbody>
   </table>
+
+  <app-test5 [student]="item"></app-test5>
 
 
   <!--
