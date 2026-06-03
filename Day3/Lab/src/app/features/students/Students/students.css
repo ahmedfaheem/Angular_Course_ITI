@@ -1,0 +1,37 @@
+.students-page {
+	display: grid;
+	gap: 1rem;
+}
+
+.students-top {
+	padding: 1rem;
+}
+
+.table-wrap {
+	overflow: hidden;
+}
+
+.table-wrap table {
+	margin: 0;
+}
+
+.table-wrap thead th {
+	background: #eaf3ff;
+	color: #204a7a;
+	border-bottom: 0;
+	font-weight: 700;
+}
+
+.table-wrap tbody tr {
+	transition: background-color 0.2s ease;
+}
+
+.table-wrap tbody td,
+.table-wrap tbody th {
+	vertical-align: middle;
+}
+
+.table-wrap .btn {
+	border-radius: 10px;
+	font-weight: 600;
+}

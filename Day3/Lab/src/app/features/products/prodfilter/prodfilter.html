@@ -1,10 +1,12 @@
-
-<p class="text-center">Total Orders Price is  {{total()}}</p>
-<select class="form-select mb-3" [(ngModel)]="filterID" (change)="filterChanged()">
-  <option value="0" selected>All Categories</option>
-  @for (category of categories; track category.id) {
-  <option [value]="category.id">
-    {{ category.name }}
-  </option>
-  }
-</select>
+<section class="filter-box">
+  <p class="total-price">Total Orders Price: <strong>{{total()}}</strong></p>
+  <label class="form-label" for="categoryFilter">Filter by Category</label>
+  <select id="categoryFilter" class="form-select mb-2" [(ngModel)]="filterID" (change)="filterChanged()">
+    <option value="0" selected>All Categories</option>
+    @for (category of categories; track category.id) {
+    <option [value]="category.id">
+      {{ category.name }}
+    </option>
+    }
+  </select>
+</section>

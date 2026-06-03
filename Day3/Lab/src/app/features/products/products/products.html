@@ -1,7 +1,5 @@
 <div class="container my-4">
-
-{{filterID()}}
-        <h1 class="text-center pb-5 pt-5">Products</h1>
+    <h1 class="text-center pb-4 pt-2">Products Catalog</h1>
 
         <app-prodfilter [total]="totalPrice" (onFilterChange)="filterID.set($event)"></app-prodfilter>
 
@@ -10,13 +8,13 @@
         <!-- Product 1 -->
          @for (item of (products | productfilter:filterID()); track item.id) {
         <div class="col-md-4" >
-            <div class="card h-100">
+            <div class="card h-100 product-card">
                 <img [src]="item.imgUrl"
                      class="card-img-top" [alt]="item.name">
                 <div class="card-body">
                     <h5 class="card-title">{{ item.name }}</h5>
-                    <p class="card-text">Price: ${{ item.price }}</p>
-                    <p class="card-text">Quantity: {{ item.quantity }}</p>
+                    <p class="card-text mb-1">Price: ${{ item.price }}</p>
+                    <p class="card-text text-muted">Quantity: {{ item.quantity }}</p>
                 </div>
                 <div class="card-footer">
                     @if (item.quantity > 0) {

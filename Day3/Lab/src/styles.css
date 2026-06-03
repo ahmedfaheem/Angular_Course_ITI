@@ -1,1 +1,65 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global visual system for Day3 Lab UI refresh */
+:root {
+	--bg: #f4f7fb;
+	--bg-soft: #eaf1ff;
+	--surface: #ffffff;
+	--surface-2: #f8fbff;
+	--text: #182230;
+	--muted: #5a6b7f;
+	--primary: #0d6efd;
+	--accent: #0dcaf0;
+	--success: #198754;
+	--danger: #dc3545;
+	--border: #d7e3f3;
+	--shadow: 0 12px 32px rgba(22, 40, 71, 0.09);
+	--radius-lg: 18px;
+	--radius-md: 12px;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	min-height: 100%;
+}
+
+body {
+	margin: 0;
+	color: var(--text);
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	background:
+		radial-gradient(1200px 500px at -15% -15%, #d8ecff 0%, transparent 55%),
+		radial-gradient(900px 420px at 110% -5%, #d8fff4 0%, transparent 58%),
+		linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 36%, #f7f9fc 100%);
+}
+
+a {
+	color: inherit;
+}
+
+.page-shell {
+	width: min(1120px, calc(100% - 2rem));
+	margin: 1.5rem auto;
+}
+
+.surface-card {
+	background: linear-gradient(180deg, var(--surface) 0%, var(--surface-2) 100%);
+	border: 1px solid var(--border);
+	border-radius: var(--radius-lg);
+	box-shadow: var(--shadow);
+}
+
+.section-title {
+	margin: 0;
+	font-size: clamp(1.4rem, 2vw, 2rem);
+	font-weight: 700;
+	letter-spacing: 0.2px;
+}
+
+.section-subtitle {
+	margin: 0.5rem 0 0;
+	color: var(--muted);
+	font-size: 0.98rem;
+}

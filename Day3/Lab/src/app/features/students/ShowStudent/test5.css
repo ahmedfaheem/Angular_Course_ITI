@@ -1,0 +1,11 @@
+.student-card {
+	margin-top: 1rem;
+	border: 1px solid #d9e7f9;
+	border-radius: 14px;
+	padding: 1rem;
+	background: linear-gradient(135deg, #fafdff, #f2f8ff);
+}
+
+.student-card p {
+	margin: 0.35rem 0;
+}

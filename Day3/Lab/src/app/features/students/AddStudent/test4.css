@@ -1,0 +1,23 @@
+.add-student .card {
+	border: 1px solid #d9e7f8;
+	border-radius: 16px;
+}
+
+.add-student .add-header {
+	background: linear-gradient(135deg, #e8f2ff, #f1f8ff);
+	border-bottom: 1px solid #d5e4f8;
+}
+
+.add-student .form-label {
+	font-weight: 600;
+	color: #2f4966;
+}
+
+.add-student .form-control {
+	border-radius: 10px;
+	border-color: #cbdcf3;
+}
+
+.add-student .form-control:focus {
+	box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+}

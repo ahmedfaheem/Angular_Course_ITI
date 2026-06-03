@@ -1,14 +1,13 @@
-<div class="container">
-
-  
-
-        <app-test4 [itemID]="editItemID" (resetEditID)="editItemID=-1"></app-test4>
-
-
+<div class="students-page">
+  <section class="students-top surface-card">
+    <h2 class="section-title">Students Management</h2>
+    <p class="section-subtitle">Add, edit, and view student details from one place.</p>
+    <app-test4 [itemID]="editItemID" (resetEditID)="editItemID=-1"></app-test4>
     <app-test5 [studentID]="itemID"></app-test5>
+  </section>
 
-
-  <table class="table my-5">
+  <section class="surface-card table-wrap">
+    <table class="table my-0">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -39,8 +38,6 @@
 
 
     </tbody>
-  </table>
-
-
-
+    </table>
+  </section>
 </div>

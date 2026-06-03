@@ -1,0 +1,23 @@
+.filter-box {
+	border: 1px solid #d9e8fb;
+	border-radius: 14px;
+	background: #f8fcff;
+	padding: 1rem;
+	margin-bottom: 1rem;
+}
+
+.total-price {
+	margin: 0 0 0.7rem;
+	color: #275084;
+	font-weight: 600;
+}
+
+.filter-box .form-label {
+	font-weight: 600;
+	color: #2d4b6b;
+}
+
+.filter-box .form-select {
+	border-radius: 10px;
+	border-color: #cfdff4;
+}

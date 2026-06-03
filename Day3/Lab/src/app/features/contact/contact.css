@@ -1,0 +1,26 @@
+.contact-page {
+	padding: 1.2rem;
+}
+
+.contact-list {
+	margin-top: 1rem;
+	display: grid;
+	gap: 0.7rem;
+}
+
+.contact-list article {
+	border: 1px solid #dbe7f8;
+	background: #fff;
+	border-radius: 12px;
+	padding: 0.85rem 1rem;
+}
+
+.contact-list h3 {
+	margin: 0;
+	font-size: 1rem;
+}
+
+.contact-list p {
+	margin: 0.35rem 0 0;
+	color: #566a80;
+}

@@ -1,0 +1,21 @@
+.not-found {
+	text-align: center;
+	padding: 2.2rem 1rem;
+}
+
+.not-found .code {
+	margin: 0;
+	font-size: clamp(2.8rem, 8vw, 4.4rem);
+	line-height: 1;
+	font-weight: 900;
+	color: #0b66d6;
+}
+
+.not-found h2 {
+	margin: 0.5rem 0;
+}
+
+.not-found p {
+	color: #607387;
+	margin-bottom: 1rem;
+}
