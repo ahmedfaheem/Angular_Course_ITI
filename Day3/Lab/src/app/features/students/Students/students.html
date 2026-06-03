@@ -1,0 +1,46 @@
+<div class="container">
+
+  
+
+        <app-test4 [itemID]="editItemID" (resetEditID)="editItemID=-1"></app-test4>
+
+
+    <app-test5 [studentID]="itemID"></app-test5>
+
+
+  <table class="table my-5">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+   
+      @for(student of stds; track student.id; let i = $index; let o = $last ){
+      <tr [ngClass]="{'bg-danger': student.age < 18, 'bg-success': student.age >= 18}">
+        <th scope="row">{{ student.id | number }}</th>
+        <td>{{ student.name |uppercase}}</td>
+        <td>{{ student.age | number }}</td>
+        <td> 
+          <button class="btn btn-info me-2" (click)="itemID=student.id">Details</button>
+          <button class="btn btn-success me-2" (click)="editItemID=student.id; itemID=-1">Edit</button>
+        </td>
+        
+      </tr>
+      }@empty {
+      <tr>
+        <td colspan="4" class="text-center">No students found.</td>
+      </tr>
+      }
+
+
+
+    </tbody>
+  </table>
+
+
+
+</div>
