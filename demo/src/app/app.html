@@ -6,10 +6,15 @@
 
 <!-- <app-productlist></app-productlist> -->
 
-<app-students></app-students>
+<!-- <app-students></app-students> -->
 
 <!-- pass data from parent-->
 <!-- $event is the data passed from child component as an argument which is the value of n -->
 <!-- <app-test3 [x]="50" [input_x] = "100"  [z]=myval  (onYUpdate)="inputY=$event" ></app-test3>
 
 inputY= {{inputY}} -->
+
+
+<app-header></app-header>
+<router-outlet></router-outlet> // to display the component related to the current route
+<app-footer></app-footer>

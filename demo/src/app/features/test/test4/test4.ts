@@ -1,7 +1,8 @@
-import { Component, output } from '@angular/core';
+import { Component, inject, output } from '@angular/core';
 import { IStudent } from '../../../models/istudent';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Studentservices } from '../../../_services/studentservices';
 
 @Component({
   selector: 'app-test4',
@@ -12,6 +13,7 @@ import { CommonModule } from '@angular/common';
 export class Test4 {
   onStudentAdd=output<IStudent>();
      stdsTemp:IStudent =  {id:0,name:"",age:0};
+    stdServ  = inject(Studentservices);
 
     addStd(){
   //  // console.log(age);
@@ -22,9 +24,12 @@ export class Test4 {
   //   this.stdsTemp.name = "";
 
     if(this.stdsTemp.age == 0) return;
-    this.onStudentAdd.emit({id:0, name:this.stdsTemp.name, age:this.stdsTemp.age});
+  //  this.onStudentAdd.emit({id:0, name:this.stdsTemp.name, age:this.stdsTemp.age});
+    this.stdServ.add({id:0, name:this.stdsTemp.name, age:this.stdsTemp.age});
     this.stdsTemp.age = 0;
      this.stdsTemp.name = "";
   }
 
+
+  
 }
